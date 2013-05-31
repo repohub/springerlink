@@ -29,7 +29,7 @@ echo $pages
 
 # load all pages
 while [ $pagenumber -le $pages ]; do
-    chapters="$(grep "content/pdf/" tmp.txt | sed -e 's/.*href="\(.*\)" doi.*$/\1/g' | sed -e 's/.*href="\(.*\)".*/\1/g')"
+    chapters="$(grep "content/pdf/" tmp.txt | sed -e 's/.*href="\(.*\)" doi.*$/\1/g' | sed -e 's/.*href="\(.*\)".*/\1/g' | sed -e 's/\(^.*.pdf\).*/\1/')"
     echo $chapters
     # get all pdf files
     for line in $chapters; do
